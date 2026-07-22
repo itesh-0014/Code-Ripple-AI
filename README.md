@@ -248,3 +248,5 @@ The server handles `ping`, `installation`, `installation_repositories`, and `pul
 
 - Secrets, private keys, local vector data, virtual environments, and `node_modules` are intentionally ignored by git.
 - The current `npm test` script is a placeholder and does not run an automated test suite yet.
+
+<!-- Live AI Review Test -->
