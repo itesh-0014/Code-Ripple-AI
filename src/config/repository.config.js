@@ -1,0 +1,56 @@
+export const repositoryAnalysisConfig = {
+  sourceFileExtensions: ['.js', '.jsx', '.ts', '.tsx', '.mjs', '.cjs'],
+
+  semanticFileExtensions: [
+    '.js',
+    '.jsx',
+    '.ts',
+    '.tsx',
+    '.mjs',
+    '.cjs',
+    '.json',
+    '.md',
+    '.yml',
+    '.yaml',
+    '.css',
+    '.scss',
+    '.html',
+    '.prisma',
+    '.graphql',
+  ],
+
+  semanticFileNames: [
+    'dockerfile',
+    'package.json',
+    'tsconfig.json',
+    'jsconfig.json',
+    'vite.config.js',
+    'vite.config.ts',
+    'next.config.js',
+    'next.config.mjs',
+    'tailwind.config.js',
+    'tailwind.config.ts',
+    '.env.example',
+  ],
+
+  ignoredPathSegments: [
+    '.git',
+    '.chroma',
+    '.next',
+    '.turbo',
+    'build',
+    'coverage',
+    'dist',
+    'node_modules',
+    'out',
+  ],
+
+  ignoredFileNames: ['package-lock.json', 'pnpm-lock.yaml', 'yarn.lock'],
+
+  maxFileSizeBytes: 300 * 1024,
+  maxSemanticFileSizeBytes: 500 * 1024,
+  maxGithubSourceFiles: 750,
+  maxGithubSemanticFiles: 1000,
+  githubBlobConcurrency: 6,
+  maxImpactDepth: 6,
+};

@@ -1,0 +1,44 @@
+{
+  "name": "coderipple_ai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "chroma": "python -c \"from chromadb.cli.cli import app; app()\" run --path ./.chroma",
+    "chroma:node": "chroma run --path ./.chroma",
+    "phase2:local": "node src/scripts/analyze-local-repo.js",
+    "phase3:index": "node src/scripts/index-local-repo.js",
+    "phase3:search": "node src/scripts/search-local-repo.js",
+    "phase3:local": "node src/scripts/analyze-local-repo-with-rag.js",
+    "phase4:local": "node src/scripts/analyze-local-repo-with-rules.js",
+    "phase5:local": "node src/scripts/analyze-local-repo-with-ai-review.js",
+    "phase6:local": "node src/scripts/analyze-local-repo-with-langgraph.js",
+    "frontend:dev": "npm run dev --prefix frontend",
+    "frontend:build": "npm run build --prefix frontend",
+    "test": "node --test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@babel/parser": "^7.29.3",
+    "@langchain/core": "^1.1.48",
+    "@langchain/langgraph": "^1.3.2",
+    "chromadb": "^3.4.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongodb": "^7.2.0",
+    "mongoose": "^9.6.3",
+    "octokit": "^5.0.5"
+  },
+  "overrides": {
+    "uuid": "^11.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

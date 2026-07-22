@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Python environment
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+private-key.pem
+*.pem
+*.key
+
+# Local/generated data
+.chroma/
+chroma/
+coverage/
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
