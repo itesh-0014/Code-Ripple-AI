@@ -23,7 +23,7 @@ Code Ripple AI is a Node.js service for analyzing repositories and pull requests
 
 ## Prerequisites
 
-- Node.js 18 or newer
+- Node.js 18 or new
 - npm
 - Python 3.10 or newer, only if running ChromaDB locally
 - A GitHub App, only if using webhook-based PR analysis
