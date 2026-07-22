@@ -1,6 +1,6 @@
 # Code Ripple AI
 
-Code Ripplee AI is a Node.js service for analyzing repositories and pull requests. It combines repository scanning, dependency graphing, rule-based validation, semantic retrieval with ChromaDB, and Gemini-powered AI review.
+Code Ripple AI is a Node.js service for analyzing repositories and pull requests. It combines repository scanning, dependency graphing, rule-based validation, semantic retrieval with ChromaDB, and Gemini-powered AI review.
 
 ## Features
 
