@@ -56,6 +56,39 @@ async function main() {
   }
 
   logPhase6Report(report);
+
+  try {
+    const { connectToDatabase } = await import('../config/database.js');
+    const { reviewHistoryService } = await import('../services/history/reviewHistoryService.js');
+    await connectToDatabase();
+    const history = await reviewHistoryService.recordReviewHistory({
+      prNumber: Math.floor(Math.random() * 900) + 100,
+      repository: 'itesh-0014/Code-Ripple-AI',
+      riskScore: report.riskScore ?? report.reviewSummary?.riskScore ?? 0,
+      confidence: report.confidence ?? report.reviewSummary?.confidence ?? 0,
+      severity: report.severity || report.reviewSummary?.severity || 'LOW',
+      summary: report.reviewSummary || null,
+      details: {
+        title: report.reviewSummary?.headline || `Analysis of ${changedFilePaths.join(', ')}`,
+        prUrl: 'https://github.com/itesh-0014/Code-Ripple-AI',
+        riskLevel: report.riskLevel || report.severity,
+        affectedSystems: report.affectedSystems || report.reviewSummary?.affectedSystems || [],
+        architectureImpact: report.architectureImpact || 'NOT_ANALYZED',
+        criticalFiles: changedFiles.map(f => f.filename),
+        suggestedChanges: report.suggestedChanges || report.reviewSummary?.suggestedChanges || [],
+        hotspots: report.hotspots || [],
+        dependencyGraph: report.graph || { nodes: [], edges: [] },
+        changedFiles,
+        readableReport: report.aiReview?.readableReport || null,
+        aiReview: report.aiReview || null,
+      },
+    });
+    console.log(`\n==================================================`);
+    console.log(`✅ REVIEW RECORDED IN MONGODB ATLAS: ${history.id}`);
+    console.log(`==================================================\n`);
+  } catch (dbError) {
+    console.warn(`\n[DB Warning] Could not persist review to MongoDB Atlas: ${dbError.message}`);
+  }
 }
 
 function hasFlag(flags, flagName) {
